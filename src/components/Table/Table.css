@@ -1,31 +1,48 @@
-h3, p {
+a {
+    text-decoration: none;
+}
+
+a, div, h3, img, p {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex > * {
+    flex: 1 0 auto;
+    min-height: 100%;
+    max-width: 100%;
 }
 
 .table-container {
-    display: flex;
-    flex-wrap: wrap;
+    min-width: 100%;
     box-sizing: border-box;
 }
 
 .table-item {
-    padding: 0 10px 0 10px;
-    margin-bottom: 20px;
-    flex: 1 0 auto;
-    flex-wrap: nowrap;
-    flex-direction: column;
+    width: 30rem;
+    padding: 0 1rem 0 1rem;
     max-width: 50%;
     box-sizing: border-box;
-    vertical-align: baseline;
+}
+
+.table-item > div {
+    margin-bottom: 2rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .table-item > img {
-    max-width: 100%;
+    
 }
 
 .table-item-text {
