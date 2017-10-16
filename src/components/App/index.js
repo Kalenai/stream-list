@@ -1,8 +1,264 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from '../Navbar';
 import Table from '../Table';
 
-const streamList = {"data":[{"id":"26473144704","user_id":"28633177","game_id":"29595","community_ids":[],"type":"live","title":"[RU] coL vs Na`Vi || SL i-League Invitational S3 LAN-Final || Day 2 by @bafikk \u0026 @DroogTV","viewer_count":49980,"started_at":"2017-10-13T09:17:11Z","language":"ru","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_starladder1-{width}x{height}.jpg"},{"id":"26473145344","user_id":"54933969","game_id":"29595","community_ids":[],"type":"live","title":"[EN] coL vs Na`Vi || SL i-League Invitational S3 LAN-Final || Day 2","viewer_count":41659,"started_at":"2017-10-13T09:17:24Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_dotastarladder_en-{width}x{height}.jpg"},{"id":"26474570288","user_id":"42776357","game_id":"138585","community_ids":[],"type":"live","title":"HCT Summer Championship - Day 1","viewer_count":40177,"started_at":"2017-10-13T15:06:55Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_playhearthstone-{width}x{height}.jpg"},{"id":"26474840272","user_id":"37402112","game_id":"493057","community_ids":[],"type":"live","title":"gametime  | Follow https://twitter.com/c9shroud","viewer_count":26780,"started_at":"2017-10-13T15:56:04Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_shroud-{width}x{height}.jpg"},{"id":"26472868624","user_id":"9072112","game_id":"494717","community_ids":[],"type":"live","title":"Club in Tokyo","viewer_count":22307,"started_at":"2017-10-13T07:38:37Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_reckful-{width}x{height}.jpg"},{"id":"26474906144","user_id":"23161357","game_id":"497437","community_ids":[],"type":"live","title":"The Fuccboi Within ----\u003e FALL MERCH: www.dbh.la/lirik2017","viewer_count":21146,"started_at":"2017-10-13T16:06:05Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_lirik-{width}x{height}.jpg"},{"id":"26473647424","user_id":"26610234","game_id":"497437","community_ids":[],"type":"live","title":"The Evil Within 2! \\o/ - Nightmare - Back to back ALL DAY streams until Southpark (on the 16th)! - !Subtember - 5 days until !4year","viewer_count":18939,"started_at":"2017-10-13T11:53:18Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_cohhcarnage-{width}x{height}.jpg"},{"id":"26472045888","user_id":"7236692","game_id":"497437","community_ids":["848d95be-90b3-44a5-b143-6e373754c382","fd0eab99-832a-4d7e-8cc0-04d73deb2e54","ff1e77af-551d-4993-945c-f8ceaa2a2829"],"type":"live","title":"The Evil Within 2 (Hardest Diff.) Sponsored by Bethesda - 7th Annual 24/7 Horror Marathon!  !store !horror ","viewer_count":18742,"started_at":"2017-10-13T03:53:36Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_dansgaming-{width}x{height}.jpg"},{"id":"26473172304","user_id":"91296568","game_id":"66170","community_ids":["b2c7a080-68a2-40db-88b1-8f85b041e897"],"type":"live","title":"🐙[Warframe Partner] Home On The Plains!! Hello.... 50% Off Sub, [PC] WARFRAME !Prime !Discord","viewer_count":18655,"started_at":"2017-10-13T09:26:57Z","language":"en-gb","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_tactical_potato_-{width}x{height}.jpg"},{"id":"26466190736","user_id":"106159308","game_id":"33945","community_ids":[],"type":"live","title":"#DOSENWURST ✶ 24/7 Dauerbeschallung ✶ Macht doof!","viewer_count":14347,"started_at":"2017-10-12T10:24:55Z","language":"de","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_gronkhtv-{width}x{height}.jpg"},{"id":"26474660928","user_id":"96642596","game_id":"138585","community_ids":["02fde7b7-58ae-473b-b30d-fa85a18af414","136d5c6a-a7ed-4b6d-aedb-1deb08793157","efc81f8f-234e-4bc0-b6b6-11bf1446a384"],"type":"live","title":"[TW] HCT Summer Championship Day 1 - HCT 夏季冠軍賽小組賽 D1","viewer_count":12624,"started_at":"2017-10-13T15:23:31Z","language":"zh-tw","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_blizzardzhtw-{width}x{height}.jpg"},{"id":"26474440944","user_id":"52091823","game_id":"495589","community_ids":[],"type":"live","title":"50 x 2 player packs... @Castro1021","viewer_count":12484,"started_at":"2017-10-13T14:43:22Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_castro_1021-{width}x{height}.jpg"},{"id":"26473441760","user_id":"74264786","game_id":"66170","community_ids":["0b9d06f9-fe5f-4f69-a4c3-2a9ee5604fb7","b2c7a080-68a2-40db-88b1-8f85b041e897","c1860172-4d14-41a1-b483-09d013d1fdab"],"type":"live","title":"Power Leveling Gara \u0026 Her Weapons, Then Exploring the Plains more. ","viewer_count":11013,"started_at":"2017-10-13T10:55:24Z","language":"en-gb","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_iflynn-{width}x{height}.jpg"},{"id":"26474090512","user_id":"60917582","game_id":"32399","community_ids":[],"type":"live","title":"@s1mpleO playing CS:GO ru/eng PUBG while waiting for FPL","viewer_count":9632,"started_at":"2017-10-13T13:34:31Z","language":"ru","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_s1mpleof-{width}x{height}.jpg"},{"id":"26473778912","user_id":"103825127","game_id":"497437","community_ids":[],"type":"live","title":"더 이블위딘2 공포고어 신작게임   풍월량","viewer_count":9506,"started_at":"2017-10-13T12:25:44Z","language":"ko","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_hanryang1125-{width}x{height}.jpg"},{"id":"26474957088","user_id":"27115707","game_id":"461410","community_ids":[],"type":"live","title":"🔴95%( ͝° ͜ʖ͡°) Рулетка PUBG: http://pubg-roll.ru/ (Classic, Low, Fast)","viewer_count":9172,"started_at":"2017-10-13T16:14:26Z","language":"ru","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_arthas-{width}x{height}.jpg"},{"id":"26474878960","user_id":"31089858","game_id":"29595","community_ids":[],"type":"live","title":"Dread's stream. SkinCoin","viewer_count":8902,"started_at":"2017-10-13T16:01:56Z","language":"ru","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_dreadztv-{width}x{height}.jpg"},{"id":"26473088464","user_id":"103861159","game_id":"495589","community_ids":[],"type":"live","title":"안녕하세요 6시의 행운아입니다","viewer_count":8149,"started_at":"2017-10-13T08:57:17Z","language":"ko","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_yapyap30-{width}x{height}.jpg"},{"id":"26473455536","user_id":"102381201","game_id":"138585","community_ids":[],"type":"live","title":"Cloud9 DDaHyoNi ","viewer_count":7076,"started_at":"2017-10-13T10:59:07Z","language":"ko","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_ddahyoni-{width}x{height}.jpg"},{"id":"26474622368","user_id":"22484632","game_id":"493057","community_ids":[],"type":"live","title":"@Forsensc2 ,WOW! Chicken dinner with 50+ stream snipers, this guy dreams like a god! Evil within 2 later!","viewer_count":6592,"started_at":"2017-10-13T15:16:16Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_forsenlol-{width}x{height}.jpg"}],"pagination":{"cursor":"eyJiIjpudWxsLCJhIjp7Ik9mZnNldCI6MjB9fQ"}}
+const streamList = {
+  "data": [
+      {
+          "id": "26491514896",
+          "user_id": "42776357",
+          "game_id": "138585",
+          "community_ids": [],
+          "type": "live",
+          "title": "HCT Summer Championship - Day 3",
+          "viewer_count": 63017,
+          "started_at": "2017-10-15T15:00:52Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_playhearthstone-{width}x{height}.jpg"
+      },
+      {
+          "id": "26493027072",
+          "user_id": "26490481",
+          "game_id": "493057",
+          "community_ids": [],
+          "type": "live",
+          "title": "gamin again - [ Follow @summit1g ]",
+          "viewer_count": 40164,
+          "started_at": "2017-10-15T18:23:03Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_summit1g-{width}x{height}.jpg"
+      },
+      {
+          "id": "26488433504",
+          "user_id": "7236692",
+          "game_id": "497437",
+          "community_ids": [
+              "848d95be-90b3-44a5-b143-6e373754c382",
+              "fd0eab99-832a-4d7e-8cc0-04d73deb2e54",
+              "ff1e77af-551d-4993-945c-f8ceaa2a2829"
+          ],
+          "type": "live",
+          "title": "Dan Spoops in Evil Within 2 (Nightmare) - 7th Annual 24/7 Horror Marathon!  !store !horror ",
+          "viewer_count": 17307,
+          "started_at": "2017-10-15T03:53:55Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_dansgaming-{width}x{height}.jpg"
+      },
+      {
+          "id": "26495241648",
+          "user_id": "37402112",
+          "game_id": "493057",
+          "community_ids": [],
+          "type": "live",
+          "title": "gametime  | Follow https://twitter.com/c9shroud",
+          "viewer_count": 15903,
+          "started_at": "2017-10-15T23:33:59Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_shroud-{width}x{height}.jpg"
+      },
+      {
+          "id": "26492368256",
+          "user_id": "40972890",
+          "game_id": "66170",
+          "community_ids": [],
+          "type": "live",
+          "title": "14K Plat Giveaway | Watch me and get loot ",
+          "viewer_count": 13637,
+          "started_at": "2017-10-15T17:01:16Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_admiralbahroo-{width}x{height}.jpg"
+      },
+      {
+          "id": "26493501328",
+          "user_id": "30080751",
+          "game_id": "21779",
+          "community_ids": [],
+          "type": "live",
+          "title": "avoiding decay to bronze",
+          "viewer_count": 13278,
+          "started_at": "2017-10-15T19:20:19Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_tsm_dyrus-{width}x{height}.jpg"
+      },
+      {
+          "id": "26495077904",
+          "user_id": "10384419",
+          "game_id": "488353",
+          "community_ids": [],
+          "type": "live",
+          "title": "2GGC: FE Saga - Day 2 - LUNATIC MODE",
+          "viewer_count": 11410,
+          "started_at": "2017-10-15T23:07:29Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_2ggaming-{width}x{height}.jpg"
+      },
+      {
+          "id": "26494498592",
+          "user_id": "27945625",
+          "game_id": "493057",
+          "community_ids": [
+              "01d41280-9332-4f54-b77a-a20f577beade",
+              "73872c57-c0b1-4cda-a0dc-52e8dc9cd456"
+          ],
+          "type": "live",
+          "title": "Curse Trials | Powered by Alienware | Finals",
+          "viewer_count": 11092,
+          "started_at": "2017-10-15T21:35:18Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_curse-{width}x{height}.jpg"
+      },
+      {
+          "id": "26492111392",
+          "user_id": "31500812",
+          "game_id": "32507",
+          "community_ids": [],
+          "type": "live",
+          "title": "SPL FALL Gauntlet: Day 2",
+          "viewer_count": 7992,
+          "started_at": "2017-10-15T16:27:08Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_hireztv-{width}x{height}.jpg"
+      },
+      {
+          "id": "26494654272",
+          "user_id": "87204022",
+          "game_id": "138585",
+          "community_ids": [],
+          "type": "live",
+          "title": "Disguised Toast: Quest Mage to LEGEND. Meme Decks after?",
+          "viewer_count": 7775,
+          "started_at": "2017-10-15T21:59:35Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_disguisedtoasths-{width}x{height}.jpg"
+      },
+      {
+          "id": "26493205888",
+          "user_id": "30684909",
+          "game_id": "21779",
+          "community_ids": [],
+          "type": "live",
+          "title": "Leko 2k17 lul / SUBS 50% OFF",
+          "viewer_count": 7261,
+          "started_at": "2017-10-15T18:44:32Z",
+          "language": "pt-br",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_leko92-{width}x{height}.jpg"
+      },
+      {
+          "id": "26491530992",
+          "user_id": "171115626",
+          "game_id": "138585",
+          "community_ids": [
+              "136d5c6a-a7ed-4b6d-aedb-1deb08793157"
+          ],
+          "type": "live",
+          "title": "[RU] HCT Summer Championship Day 3 FINAL",
+          "viewer_count": 7207,
+          "started_at": "2017-10-15T15:03:13Z",
+          "language": "ru",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_neon_lab-{width}x{height}.jpg"
+      },
+      {
+          "id": "26493000736",
+          "user_id": "68950614",
+          "game_id": "29595",
+          "community_ids": [],
+          "type": "live",
+          "title": "Плохие тиммейты на дороге в 2-3к? Кем и как выигрывать By Skincoin",
+          "viewer_count": 7056,
+          "started_at": "2017-10-15T18:19:53Z",
+          "language": "ru",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ybicanoooobov-{width}x{height}.jpg"
+      },
+      {
+          "id": "26494283952",
+          "user_id": "136809201",
+          "game_id": "478467",
+          "community_ids": [],
+          "type": "live",
+          "title": "Mobile Masters Live - Vainglory",
+          "viewer_count": 6688,
+          "started_at": "2017-10-15T21:04:02Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_amazonappstore-{width}x{height}.jpg"
+      },
+      {
+          "id": "26493125648",
+          "user_id": "113314458",
+          "game_id": "30921",
+          "community_ids": [],
+          "type": "live",
+          "title": "ESL with Geno and Rapid",
+          "viewer_count": 6201,
+          "started_at": "2017-10-15T18:34:52Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_lemonpuppyrl-{width}x{height}.jpg"
+      },
+      {
+          "id": "26494573184",
+          "user_id": "19571641",
+          "game_id": "33214",
+          "community_ids": [],
+          "type": "live",
+          "title": "WE SLAYIN",
+          "viewer_count": 6059,
+          "started_at": "2017-10-15T21:46:54Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ninja-{width}x{height}.jpg"
+      },
+      {
+          "id": "26492845168",
+          "user_id": "116882497",
+          "game_id": "495589",
+          "community_ids": [],
+          "type": "live",
+          "title": "[GER/ENG] FUT CHAMPIONS - ROAD TO TOP 100! ",
+          "viewer_count": 5359,
+          "started_at": "2017-10-15T18:01:28Z",
+          "language": "de",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_mirza_jahic-{width}x{height}.jpg"
+      },
+      {
+          "id": "26494755152",
+          "user_id": "26194208",
+          "game_id": "18122",
+          "community_ids": [],
+          "type": "live",
+          "title": "Chillin ",
+          "viewer_count": 5267,
+          "started_at": "2017-10-15T22:15:04Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_mitchjones-{width}x{height}.jpg"
+      },
+      {
+          "id": "26493188880",
+          "user_id": "71092938",
+          "game_id": "488552",
+          "community_ids": [],
+          "type": "live",
+          "title": "xQc | Climb REFORMED DAY2",
+          "viewer_count": 5052,
+          "started_at": "2017-10-15T18:42:32Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_xqcow-{width}x{height}.jpg"
+      },
+      {
+          "id": "26493648096",
+          "user_id": "62502182",
+          "game_id": "66170",
+          "community_ids": [],
+          "type": "live",
+          "title": "[Warframe Partner] Unlocking Achievements in Eidolon [Platinum Coach]",
+          "viewer_count": 4562,
+          "started_at": "2017-10-15T19:38:28Z",
+          "language": "en",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_neoness007-{width}x{height}.jpg"
+      }
+  ],
+  "pagination": {
+      "cursor": "eyJiIjpudWxsLCJhIjp7Ik9mZnNldCI6MjB9fQ"
+  }
+}
 
 class App extends Component {
   constructor(props) {
@@ -11,12 +267,19 @@ class App extends Component {
     this.state = {
       results: streamList,
     }
+
+    this.onNavClick = this.onNavClick.bind(this);
+  }
+
+  onNavClick(viewID) {
+    return
   }
 
   render() {
     const list = this.state.results.data;
     return (
       <div className="App">
+        <Navbar onClick={this.onNavClick} />
         <Table list={list} />
       </div>
     );
