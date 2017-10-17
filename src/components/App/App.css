@@ -1,3 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, div, h3, img, li, p, ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
 .App {
   background-color: #17141f;
+  padding: 3rem;
 }
