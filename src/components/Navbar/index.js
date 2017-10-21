@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ onClick }) =>
   <nav>
     <div className="navbar">
         <ul>
-            <li><a href="">Games</a></li>
-            <li><a href="">Communities</a></li>
-            <li><a href="">Popular</a></li>
-            <li><a href="">Creative</a></li>
-            <li><a href="https://www.twitch.tv/directory/discover" target="_blank">Discover</a></li>
+            <li><Link to="/">Games</Link></li>
+            <li><Link to="/communities">Communities</Link></li>
+            <li><Link to="/popular">Popular</Link></li>
+            <li><Link to="/creative">Creative</Link></li>
+            <li><a href="https://www.twitch.tv/directory/discover" target="_blank" rel="noopener noreferrer">
+              Discover
+            </a></li>
         </ul>
     </div>
   </nav>
