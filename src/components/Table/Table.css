@@ -23,14 +23,10 @@
     box-sizing: border-box;
 }
 
-.table-item > div {
+.table-item > a > div {
     margin-bottom: 2rem;
     flex-direction: column;
     flex-wrap: nowrap;
-}
-
-.table-item > img {
-    
 }
 
 .table-item-text {
