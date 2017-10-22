@@ -1,7 +1,7 @@
 import React from 'react';
-import './Table.css';
+import './StreamTable.css';
 
-const Table = ({ list }) =>
+const StreamTable = ({ list }) =>
   <div className="table-container flex">
     { list.map(item =>
       <div className="table-item" key={item._id}>
@@ -20,4 +20,4 @@ const Table = ({ list }) =>
     )}
   </div>
 
-export default Table;
+export default StreamTable;
